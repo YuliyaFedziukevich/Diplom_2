@@ -1,5 +1,6 @@
 import allure
 from helper.api_requests import user_authorization
+from data.responses import incorrect_fields
 
 class TestUserLogin:
     @allure.title('Успешный вход в аккаунт под существующим пользователем с корректными данными, ручка - /api/auth/login')
@@ -30,4 +31,4 @@ class TestUserLogin:
         with allure.step('Проверка, что код статуса ответа - 401'):
             assert last_response.status_code == 401
         with allure.step('Проверка, что в теле ответа - ("success": false,"message": "email or password are incorrect")'):
-            assert last_response.json() == {"success": False,"message": "email or password are incorrect"}
+            assert last_response.json() == incorrect_fields

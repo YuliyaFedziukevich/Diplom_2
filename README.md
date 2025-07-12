@@ -14,6 +14,7 @@
 * - test_successful_creating_user;
 * - test_impossible_to_create_two_identical_users;
 * - test_impossible_to_create_courier_without_one_of_required_fields; 
+* - test_impossible_to_create_courier_without_required_fields
 * 3.2 **test_users_login** - содержит тесты касательно авторизации пользователя:
 * - test_successful_sign_in_under_existing_user;
 * - test_impossible_sign_in_with_false_login_and_password;

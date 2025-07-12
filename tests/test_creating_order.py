@@ -1,5 +1,6 @@
 import allure
 from helper.api_requests import order_creating
+from data.responses import empty_order
 
 class TestCreatingOrder:
     @allure.title('Успешное создание заказа авторизованным пользователем, ручка - /api/orders')
@@ -51,7 +52,7 @@ class TestCreatingOrder:
         with allure.step('Проверка, что код статуса ответа - 400'):
             assert response.status_code == 400
         with allure.step('Проверка, что в теле ответа - {"success": false, "message": "Ingredient ids must be provided"}'):
-            assert response.json() == {'success': False, 'message': 'Ingredient ids must be provided'}
+            assert response.json() == empty_order
 
 
     @allure.title('Невозможно создание заказа с неверным хешем ингредиентов, ручка - /api/orders')
